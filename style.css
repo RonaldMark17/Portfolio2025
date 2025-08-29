@@ -1,0 +1,55 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+* {
+  text-decoration: none !important;
+  scroll-behavior: smooth;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: #4b5563; /* gray-700 */
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+#slider {
+      display: flex;
+      gap: 0.5rem;
+      animation: scroll 20s linear infinite;
+      width: max-content;
+    }
+    #slider-container {
+      overflow: hidden;
+      max-width: 100%;
+      position: relative;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    /* Pause on hover */
+    #slider-container:hover #slider {
+      animation-play-state: paused;
+    }
+
+    
+
+
+    
