@@ -25,7 +25,13 @@ function type() {
   if (index < text.length) {
     typingElement.innerHTML += text.charAt(index);
     index++;
-    setTimeout(type, 100); // speed (100ms per letter)
+    setTimeout(type, 100);
+  } else {
+    setTimeout(() => {
+      typingElement.innerHTML = "";
+      index = 0;
+      type();
+    }, 3000);
   }
 }
 
@@ -81,3 +87,4 @@ document.addEventListener("keydown", (e) => {
     closeModal();
   }
 });
+
