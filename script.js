@@ -30,9 +30,9 @@ function type() {
 }
 
 type();
-
 const slider = document.getElementById("slider");
-slider.innerHTML += slider.innerHTML;
+
+// The slider content is already duplicated in HTML for infinite scroll effect, so no need to duplicate here.
 
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
@@ -55,6 +55,7 @@ slider.querySelectorAll("button").forEach((btn) => {
     modal.classList.remove("opacity-0", "pointer-events-none");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    modal.focus();
   });
 });
 
