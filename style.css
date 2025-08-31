@@ -26,30 +26,29 @@ body {
 }
 
 #slider {
-      display: flex;
-      gap: 0.5rem;
-      animation: scroll 20s linear infinite;
-      width: max-content;
-    }
-    #slider-container {
-      overflow: hidden;
-      max-width: 100%;
-      position: relative;
-    }
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-    /* Pause on hover */
-    #slider-container:hover #slider {
-      animation-play-state: paused;
-    }
+  display: flex;
+  gap: 0.5rem;
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
 
-    
+#slider-container {
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+}
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
 
-    
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+#slider-container:hover #slider {
+  animation-play-state: paused;
+}
