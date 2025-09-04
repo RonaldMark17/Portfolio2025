@@ -120,7 +120,7 @@ navigator.geolocation.watchPosition(
     var accuracy = position.coords.accuracy;
     var marker = L.marker([lat, lon]).addTo(map).bindPopup("Here").openPopup();
     var circle = L.circle([lat, lon], { radius: accuracy }).addTo(map);
-    map.setView([lat, lon], 20);
+    map.setView([lat, lon], 10);
   },
   function (err) {
     console.warn("ERROR(" + err.code + "): " + err.message);
