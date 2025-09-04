@@ -17,21 +17,35 @@ navLinks.forEach((link) => {
   });
 });
 
-const text = "Ronald Mark L. Masalonga, 21";
+const text = "Ronald Mark Masalonga, 21";
 const typingElement = document.getElementById("typing");
+const typingContainer = document.getElementById("typing-container");
 let index = 0;
+
+function resizeFont() {
+  let parentWidth = typingContainer.parentElement.offsetWidth;
+  let fontSize = 40; // start big
+  typingContainer.style.fontSize = fontSize + "px";
+
+  while (typingContainer.scrollWidth > parentWidth && fontSize > 12) {
+    fontSize--; // shrink until it fits
+    typingContainer.style.fontSize = fontSize + "px";
+  }
+}
 
 function type() {
   if (index < text.length) {
     typingElement.innerHTML += text.charAt(index);
     index++;
+    resizeFont(); // adjust size each time
     setTimeout(type, 100);
   } else {
     setTimeout(() => {
       typingElement.innerHTML = "";
       index = 0;
+      typingContainer.style.fontSize = "40px"; // reset to big
       type();
-    }, 3000);
+    }, 5000);
   }
 }
 
@@ -89,25 +103,26 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-var map = L.map('map').setView([14.079226211949175, 121.31036092065423], null);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+var map = L.map("map").setView([14.079226211949175, 121.31036092065423], null);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
-
-navigator.geolocation.watchPosition(function(position) {
+navigator.geolocation.watchPosition(
+  function (position) {
     // var lat = position.coords.latitude;
     // var lon = position.coords.longitude;
 
     var lat = 14.079226211949175;
     var lon = 121.31036092065423;
     var accuracy = position.coords.accuracy;
-    var marker = L.marker([lat, lon]).addTo(map)
-        .bindPopup("Here").openPopup();
-    var circle = L.circle([lat, lon], {radius: accuracy}).addTo(map);
+    var marker = L.marker([lat, lon]).addTo(map).bindPopup("Here").openPopup();
+    var circle = L.circle([lat, lon], { radius: accuracy }).addTo(map);
     map.setView([lat, lon], 15);
-}, function(err) {
-    console.warn('ERROR(' + err.code + '): ' + err.message);
-});
-
+  },
+  function (err) {
+    console.warn("ERROR(" + err.code + "): " + err.message);
+  }
+);
