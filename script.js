@@ -97,13 +97,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 navigator.geolocation.watchPosition(function(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+    // var lat = position.coords.latitude;
+    // var lon = position.coords.longitude;
+
+    var lat = 14.079226211949175;
+    var lon = 121.31036092065423;
     var accuracy = position.coords.accuracy;
     var marker = L.marker([lat, lon]).addTo(map)
         .bindPopup("Here").openPopup();
     var circle = L.circle([lat, lon], {radius: accuracy}).addTo(map);
-    map.setView([lat, lon], 16);
+    map.setView([lat, lon], 15);
 }, function(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
 });
