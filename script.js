@@ -36,6 +36,7 @@ function type() {
 }
 
 type();
+
 const slider = document.getElementById("slider");
 
 // The slider content is already duplicated in HTML for infinite scroll effect, so no need to duplicate here.
@@ -86,5 +87,24 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !modal.classList.contains("opacity-0")) {
     closeModal();
   }
+});
+
+var map = L.map('map').setView([14.079226211949175, 121.31036092065423], null);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+navigator.geolocation.watchPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var accuracy = position.coords.accuracy;
+    var marker = L.marker([lat, lon]).addTo(map)
+        .bindPopup("Here").openPopup();
+    var circle = L.circle([lat, lon], {radius: accuracy}).addTo(map);
+    map.setView([lat, lon], 16);
+}, function(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
 });
 
