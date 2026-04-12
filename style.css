@@ -1,54 +1,54 @@
-body {
-  font-family: "Poppins", sans-serif;
-}
-* {
-  text-decoration: none !important;
+/* 1. Apply smooth scroll to the document root, NOT every element */
+html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden; /* Prevents horizontal scrollbars on mobile */
+}
+
+/* --- Typing Cursor Animation --- */
 .cursor {
   display: inline-block;
   width: 3px;
-  background-color: #4b5563; /* gray-700 */
-  margin-left: 2px;
+  height: 1em;
+  background-color: #1f2937; /* Tailwind gray-800 */
+  margin-left: 4px;
   animation: blink 0.8s infinite;
+  vertical-align: middle;
 }
 
 @keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-#slider {
-  display: flex;
-  gap: 0.5rem;
-  animation: scroll 20s linear infinite;
-  width: max-content;
-}
-
+/* --- Infinite Slider Animation --- */
 #slider-container {
   overflow: hidden;
   max-width: 100%;
   position: relative;
+  
+  /* Optional: Adds a premium fade effect to the left and right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+#slider {
+  display: flex;
+  /* Removed 'gap' to fix the math for the seamless loop */
+  animation: scroll 25s linear infinite; 
+  width: max-content;
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Pause on hover */
-#slider-container:hover #slider {
+#slider-container:hover #slider,
+#slider-container:focus-within #slider {
   animation-play-state: paused;
 }

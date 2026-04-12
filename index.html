@@ -1,529 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ronald Mark Masalonga - Portfolio</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-  <title>Profile Page</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin />
 
-</head>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body class="bg-gray-200">
-  <!-- Navbar -->
-  <header class="px-6 py-4 shadow-lg bg-white/30 backdrop-blur-md sticky top-0 z-50 border-b border-white/20"
-    id="navbar">
-    <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between" aria-label="Primary Navigation">
-      <a href="#" class="text-blue-600 font-bold text-4xl">Portfolio</a>
+  <body class="bg-gray-200 antialiased text-gray-800">
+    <header
+      class="px-6 py-4 shadow-sm bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-white/20"
+      id="navbar">
+      <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between"
+        aria-label="Primary Navigation">
+        <a href="#home"
+          class="text-blue-600 font-bold text-3xl md:text-4xl tracking-tight">Portfolio.</a>
 
-      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
-        class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
+        <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+          class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
 
-      <div id="menu" class="w-full md:w-auto md:flex md:items-center md:space-x-6 hidden">
-        <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-          <a href="#home"
-            class="text-gray-600 hover:border-b-2 hover:border-b-blue-500 hover:text-blue-500 nav-link">Home</a>
-          <a href="#about"
-            class="text-gray-600 hover:border-b-2 hover:border-b-blue-500 hover:text-blue-500 nav-link">About</a>
-          <a href="#Awards & Recognition"
-            class="text-gray-600 hover:border-b-2 hover:border-b-blue-500 hover:text-blue-500 nav-link">Awards &
-            Recognition</a>
-          <a href="#contact"
-            class="text-gray-600 hover:border-b-2 hover:border-b-blue-500  hover:text-blue-500 nav-link">Contact</a>
-        </div>
-
-        <!-- <div class="flex flex-col space-y-3 mt-4 md:mt-0 md:flex-row md:space-y-0 md:space-x-4">
-                    <button onclick="window.open('https://www.facebook.com/macky.masalonga.17', '_blank')" class="flex items-center gap-2 text-white py-2 px-6 uppercase rounded-lg bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" type="button">
-                        <i class="fab fa-facebook-f text-lg"></i>
-                        Facebook
-                    </button>
-
-                    <button onclick="window.open('https://github.com/RonaldMark17', '_blank')" class="flex items-center gap-2 text-white py-2 px-6 uppercase rounded-lg bg-gray-800 hover:bg-gray-900 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" type="button">
-                        <i class="fab fa-github text-lg"></i>
-                        GitHub
-                    </button>
-                </div> -->
-      </div>
-    </nav>
-  </header>
-
-  <!-- Profile Card -->
-  <main class="px-6 md:px-16 lg:px-32" id="home">
-    <section class="p-8">
-      <div class="p-8 bg-white/50 backdrop-blur-md shadow-lg rounded-2xl mt-24">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-          <div class="relative">
-            <div
-              class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-xl absolute inset-x-0 -top-24 flex items-center justify-center text-indigo-500">
-              <img src="resources/e25f0ffa-f6cc-4224-a825-f09f16a9c4b6.jpg" alt="Profile Picture"
-                class="h-48 w-48 rounded-full object-cover" />
-
-              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-              </svg>
-            </div>
+        <div id="menu"
+          class="w-full md:w-auto md:flex md:items-center md:space-x-8 hidden transition-all duration-300 ease-in-out">
+          <div
+            class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-8 mt-4 md:mt-0 font-medium">
+            <a href="#home"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Home</a>
+            <a href="#about"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">About</a>
+            <a href="#projects"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Projects</a>
+            <a href="#awards"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Awards
+              & Recognition</a>
+            <a href="#contact"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Contact</a>
           </div>
         </div>
-        <div class="mt-28 text-center border-b pb-6">
-          <div class="w-full max-w-full overflow-hidden">
-            <h1 id="typing-container" class="font-medium text-gray-700 whitespace-nowrap overflow-hidden">
-              <span id="typing"></span>
-              <span class="cursor"></span>
-            </h1>
-          </div>
-          <p class=" text-gray-600 mt-2">Laguna, Philippines</p>
-          <p class="mt-6 text-gray-500 font-medium">
-            Bachelor of Science in Information Technology
-          </p>
-          <p class="mt-1 text-gray-500">
-            Laguna State Polytechnic University - San Pablo City Campus
-          </p>
-        </div>
-        <div class="mt-8 flex flex-col justify-center">
-          <p class="text-black-600 text-center  px-6 md:px-16">
-            Aspiring IT professional with a passion for technology and
-            innovation. Dedicated to continuous learning and growth in the
-            ever-evolving field of information technology.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- About -->
-  <section class="px-6 md:px-16 lg:px-32" id="about">
-    <div class="p-8">
-      <div class="flex felx-col items-center justify-center">
-        <span class="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-          Insights
-        </span>
-      </div>
-      <h1 class="text-4xl font-medium text-gray-700 text-center mt-6">
-        More About Me
-      </h1>
-      <p class="text-center mt-6 text-lg  text-gray-500">
-        I chose BSIT because I am keen to explore the world of technology and gain a deeper understanding of how it
-        functions. While I have not yet undertaken major projects, I am proficient in coding with Java, C#, JavaScript,
-        and have some experience with SQL. My passion for problem-solving drives me in this field, and I enjoy the
-        challenges that come with finding solutions. I believe that BSIT perfectly aligns with both my interests and
-        strengths.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3">
-      <div class="p-8">
-        <div class="bg-indigo-100 rounded-full w-16 h-16 flex justify-center items-center text-indigo-500 shadow-2xl">
-          <i class="bg-indigo-100 fas fa-cog fa-spin fa-2x"></i>
-        </div>
-        <h2 class="uppercase mt-6 text-indigo-500 font-medium mb-3">
-          Social conversations
-        </h2>
-        <p class=" text-sm text-gray-500 mb-3">
-          We get insulted by others, lose trust for those others. We get
-          back stabbed by friends. It becomes harder for us to give others a
-          hand.
-        </p>
-        <a class="text-indigo-500 flex items-center hover:text-indigo-600" href="/">
-          More about us icon
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </a>
-      </div>
-      <div class="p-8">
-        <div class="bg-green-100 rounded-full w-16 h-16 flex justify-center items-center text-green-500 shadow-2xl">
-          <i class="bg-green-100 fas fa-cog fa-spin fa-2x"></i>
-        </div>
-        <h2 class="uppercase mt-6 text-green-500 font-medium mb-3">
-          Social conversations
-        </h2>
-        <p class=" text-sm text-gray-500 mb-3">
-          We get insulted by others, lose trust for those others. We get
-          back stabbed by friends. It becomes harder for us to give others a
-          hand.
-        </p>
-        <a class="text-green-500 flex items-center hover:text-green-600" href="/">
-          More about us icon
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </a>
-      </div>
-      <div class="p-8">
-        <div class="bg-red-100 rounded-full w-16 h-16 flex justify-center items-center text-red-500 shadow-2xl">
+      </nav>
+    </header>
 
-          <i class="bg-red-100 fas fa-cog fa-spin fa-2x"></i>
-        </div>
-        <h2 class="uppercase mt-6 text-red-500 font-medium mb-3">
-          Social conversations
-        </h2>
-        <p class=" text-sm text-gray-500 mb-3">
-          We get insulted by others, lose trust for those others. We get
-          back stabbed by friends. It becomes harder for us to give others a
-          hand.
-        </p>
-        <a class="text-red-500 flex items-center hover:text-red-600" href="/">
-          More about us icon
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Awards & Recognition -->
-  <div class="p-8 bg-white/50 backdrop-blur-md shadow-lg rounded-2xl mt-24 mx-16 my-8">
-    <div class="p-8" id="Awards &amp; Recognition">
-      <div class="flex flex-col items-center justify-center">
-        <span
-          class="rounded-full bg-indigo-500 px-3 py-1 text-white uppercase text-sm tracking-wider font-semibold select-none">
-          Highlights
-        </span>
-      </div>
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-700 text-center mt-6 w-auto leading-tight select-none">
-        Awards &amp; Recognition
-      </h1>
-      <p class="text-center mt-6 text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-        I have actively participated in several competitions and earned recognition for my contributions to the field of
-        IT. I was the 2nd runner-up in the Think Quest at STI in 2022, where I demonstrated my problem-solving and
-        analytical abilities. During the same year, I was also recognized for having the "Most Innovative Research
-        Proposal." In 2023, I joined the IT Olympics, which further enhanced my skills through various technical
-        challenges. Most recently, in 2024, I participated in the ASEAN Data Science Explorers, where I applied
-        data-driven approaches to address real-world problems on an international stage. In 2025, I joined the CCS Fest
-        Quiz Bee and earned 3rd place, further showcasing my knowledge and competitiveness in the field.
-      </p>
-    </div>
-    <div class="p-8">
-      <div aria-label="Awards slider" class="relative w-full" id="slider-container">
-        <div class="flex" id="slider" role="list">
-          <button aria-label="Think Quest 2022"
-            class="p-6 border border-gray-200 rounded bg-white flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Think Quest 2022 was my first award at STI. In this quiz bee-style event, our team of four answered tough IT questions and got 2nd runner-up. This boosted my confidence and passion."
-            data-image="resources/3.png" data-title="Think Quest 2022" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Golden trophy with a star on top, symbolizing Think Quest 2022"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/3.png" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                Think Quest 2022
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Think Quest 2022 was my first award at STI. In this quiz bee-style event, our team of four answered
-                tough IT questions and got 2nd runner-up. This boosted my confidence and passion
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="Research Proposal 2023"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Our research proposal was recognized as the Most Innovative during the defense. This award highlights the creativity and originality of our project."
-            data-image="resources/4.jpg" data-title="Research Proposal 2023" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Silver medal with handshake icon, representing Research Proposal 2023"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/4.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                Research Proposal 2023
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Our research proposal was recognized as the Most Innovative during the defense. This award highlights
-                the creativity and originality of our project.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="IT Olympics 2024"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Participated in the IT Olympics 2023, a competitive event that tested my technical skills and teamwork in various IT challenges."
-            data-image="resources/1.jpg" data-title="IT Olympics 2024" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Gold medal with computer icon, symbolizing IT Olympics 2024"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/1.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                IT Olympics 2023
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Participated in the IT Olympics 2023, a competitive event that tested my technical skills and teamwork
-                in various IT challenges.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="ASEAN Data Science Explorers 2024"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Joining the ASEAN Data Science Explorers was challenging, but my mentor was very kind and patient, making the experience rewarding."
-            data-image="resources/2.jpg" data-title="ASEAN Data Science Explorers 2024" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Green leaf emblem representing excellence in sustainability 2020"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/2.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                ASEAN Data Science Explorers 2024
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Joining the ASEAN Data Science Explorers was challenging, but my mentor was very kind and patient,
-                making the experience rewarding.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="CCS Fest Quiz Bee 2025"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="In 2025, I joined the CCS Fest Quiz Bee, where the competition was tough, but the experience was exciting and rewarding. With preparation and focus, I was able to earn 3rd place, which further strengthened my confidence and knowledge in the field."
-            data-image="resources/5.jpg" data-title="CCS Fest Quiz Bee 2025" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Hands holding heart icon representing community impact award 2019"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/5.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                CCS Fest Quiz Bee 2025
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                In 2025, I joined the CCS Fest Quiz Bee, where the competition was tough, but the experience was
-                exciting and rewarding. With preparation and focus, I was able to earn 3rd place, which further
-                strengthened my confidence and knowledge in the field.
-              </p>
-            </div>
-          </button>
-          <!-- Repeat the same 5 awards again for infinite scroll effect -->
-          <button aria-label="Think Quest 2022"
-            class="p-6 border border-gray-200 rounded bg-white flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Think Quest 2022 was my first award at STI. In this quiz bee-style event, our team of four answered tough IT questions and got 2nd runner-up. This boosted my confidence and passion."
-            data-image="resources/3.png" data-title="Think Quest 2022" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Golden trophy with a star on top, symbolizing Think Quest 2022"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/3.png" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                Think Quest 2022
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Think Quest 2022 was my first award at STI. In this quiz bee-style event, our team of four answered
-                tough IT questions and got 2nd runner-up. This boosted my confidence and passion
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="Research Proposal 2023"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Our research proposal was recognized as the Most Innovative during the defense. This award highlights the creativity and originality of our project."
-            data-image="resources/4.jpg" data-title="Research Proposal 2023" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Silver medal with handshake icon, representing Research Proposal 2023"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/4.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                Research Proposal 2023
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Our research proposal was recognized as the Most Innovative during the defense. This award highlights
-                the creativity and originality of our project.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="IT Olympics 2024"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Participated in the IT Olympics 2023, a competitive event that tested my technical skills and teamwork in various IT challenges."
-            data-image="resources/1.jpg" data-title="IT Olympics 2024" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Gold medal with computer icon, symbolizing IT Olympics 2024"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/1.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                IT Olympics 2023
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Participated in the IT Olympics 2023, a competitive event that tested my technical skills and teamwork
-                in various IT challenges.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="ASEAN Data Science Explorers 2024"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="Joining the ASEAN Data Science Explorers was challenging, but my mentor was very kind and patient, making the experience rewarding."
-            data-image="resources/2.jpg" data-title="ASEAN Data Science Explorers 2024" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Green leaf emblem representing excellence in sustainability 2020"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/2.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                ASEAN Data Science Explorers 2024
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                Joining the ASEAN Data Science Explorers was challenging, but my mentor was very kind and patient,
-                making the experience rewarding.
-              </p>
-            </div>
-          </button>
-
-          <button aria-label="CCS Fest Quiz Bee 2025"
-            class="p-6 border border-gray-200 rounded bg-white/30 backdrop-blur-md flex-shrink-0 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100 w-56 sm:w-64 md:w-72 lg:w-80"
-            data-description="In 2025, I joined the CCS Fest Quiz Bee, where the competition was tough, but the experience was exciting and rewarding. With preparation and focus, I was able to earn 3rd place, which further strengthened my confidence and knowledge in the field."
-            data-image="resources/5.jpg" data-title="CCS Fest Quiz Bee 2025" role="listitem" tabindex="0">
-            <div class="flex justify-center items-center text-gray-500">
-              <img alt="Hands holding heart icon representing community impact award 2019"
-                class="h-48 w-48 object-cover rounded" height="192" src="resources/5.jpg" width="192" />
-            </div>
-            <div class="text-center mt-4">
-              <h1 class="font-bold text-gray-700 select-text">
-                CCS Fest Quiz Bee 2025
-              </h1>
-              <p class="text-gray-500 text-sm mt-2 select-text">
-                In 2025, I joined the CCS Fest Quiz Bee, where the competition was tough, but the experience was
-                exciting and rewarding. With preparation and focus, I was able to earn 3rd place, which further
-                strengthened my confidence and knowledge in the field.
-              </p>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal -->
-  <div aria-describedby="modal-description" aria-hidden="true" aria-labelledby="modal-title" aria-modal="true"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 z-50"
-    id="modal" role="dialog">
-    <div
-      class="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-auto shadow-lg relative focus:outline-none focus:ring-4 focus:ring-indigo-400">
-      <button aria-label="Close modal"
-        class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
-        id="modal-close" type="button">
-        <i class="fas fa-times fa-lg">
-        </i>
-      </button>
-      <img alt="" class="w-full h-64 object-cover rounded-t-xl" id="modal-image" src="" />
-      <div class="p-6">
-        <h2 class="text-2xl font-bold text-gray-800 mb-2 select-text" id="modal-title">
-        </h2>
-        <p class="text-gray-600 select-text" id="modal-description">
-        </p>
-      </div>
-    </div>
-  </div>
-  </div>
-
-
-
-  <!--Contact-->
-  <div class="flex flex-col justify-center items-center rounded-lg p-6 min-h-screen" id="contact">
-    <main class="w-full max-w-5xl p-6">
-      <div class="p-8 flex flex-col justify-center items-center text-center" id="Awards &amp; Recognition">
-        <h1 class="text-4xl font-medium text-gray-700 mt-6 md:mt-0">
-          Contact Me
-        </h1>
-        <p class="mt-6 text-lg text-gray-500 max-w-xl">
-          The time is now for it to be okay to be great. For being a bright color. For standing out.
-        </p>
-      </div>
-      <div class="flex flex-col md:flex-row md:space-x-10 mt-8">
-        <div class="w-full md:w-1/2">
-          <form action="#" autocomplete="off" class="space-y-4" method="POST" novalidate="">
-            <div>
-              <label class="block text-gray-700 mb-1" for="name">
-                Name
-              </label>
-              <input
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                id="name" name="name" placeholder="Your name" required="" type="text" />
-            </div>
-            <div>
-              <label class="block text-gray-700 mb-1" for="email">
-                Email
-              </label>
-              <input
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                id="email" name="email" placeholder="you@example.com" required="" type="email" />
-            </div>
-            <div>
-              <label class="block text-gray-700 mb-1" for="message">
-                Message
-              </label>
-              <textarea
-                class="w-full px-3 py-2 border border-gray-300 rounded-md resize-y focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                id="message" name="message" placeholder="Your message" required="" rows="4"></textarea>
-            </div>
-            <button
-              class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 transition"
-              type="submit">
-              Send
-            </button>
-          </form>
-        </div>
+    <main class="px-6 md:px-16 lg:px-32 pt-20" id="home">
+      <section class="max-w-5xl mx-auto">
         <div
-          class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-end mt-8 md:mt-0 border-t pt-8 md:pt-0 md:border-t-0">
-          <div class="h-44 md:h-60 rounded-lg overflow-hidden shadow-md w-full max-w-md" id="map">
-            <img
-              alt="A detailed map showing a city center with streets, parks, and landmarks, designed for a contact page"
-              class="w-full h-full object-cover" height="240" width="600" />
+          class="p-8 bg-white/60 backdrop-blur-lg shadow-xl rounded-2xl relative mt-16">
+          <div class="absolute -top-20 left-1/2 transform -translate-x-1/2">
+            <div
+              class="w-40 h-40 md:w-48 md:h-48 bg-indigo-100 rounded-full shadow-xl border-4 border-white overflow-hidden flex items-center justify-center">
+              <img src="resources/e25f0ffa-f6cc-4224-a825-f09f16a9c4b6.jpg"
+                alt="Ronald Mark Masalonga" class="h-full w-full object-cover"
+                onerror="this.src='https://ui-avatars.com/api/?name=Ronald+Mark&size=200&background=c7d2fe&color=3730a3'" />
+            </div>
+          </div>
+
+          <div class="mt-24 text-center border-b border-gray-200 pb-8">
+            <div
+              class="w-full max-w-full overflow-hidden flex justify-center h-12 md:h-16">
+              <h1 id="typing-container"
+                class="font-bold text-gray-800 text-2xl md:text-4xl lg:text-5xl whitespace-nowrap flex items-center">
+                <span id="typing"></span><span class="cursor"></span>
+              </h1>
+            </div>
+            <p class="text-blue-600 font-medium mt-2"><i
+                class="fas fa-map-marker-alt mr-2"></i>Laguna, Philippines</p>
+            <p class="mt-6 text-gray-700 font-semibold text-lg">Bachelor of
+              Science in Information Technology</p>
+            <p class="mt-1 text-gray-500">Laguna State Polytechnic University -
+              San Pablo City Campus</p>
+          </div>
+
+          <div class="mt-8">
+            <p
+              class="text-gray-600 text-center max-w-2xl mx-auto leading-relaxed">
+              Aspiring IT professional with a passion for technology and
+              innovation. Dedicated to continuous learning and growth in the
+              ever-evolving field of information technology.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="px-6 md:px-16 lg:px-32 py-24" id="about">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center justify-center mb-12">
+          <span
+            class="rounded-full bg-blue-100 text-blue-600 px-4 py-1 uppercase text-xs font-bold tracking-wider mb-4">Insights</span>
+          <h1
+            class="text-3xl md:text-4xl font-bold text-gray-800 text-center">More
+            About Me</h1>
+          <p
+            class="text-center mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
+            I chose BSIT because I am keen to explore the world of technology
+            and gain a deeper understanding of how it functions. While I have
+            not yet undertaken major projects, I am proficient in coding with
+            Java, C#, JavaScript, and have some experience with SQL. My passion
+            for problem-solving drives me in this field.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="p-8 bg-white/50 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div
+              class="bg-indigo-100 rounded-xl w-14 h-14 flex justify-center items-center text-indigo-600 mb-6">
+              <i class="fas fa-code fa-lg"></i>
+            </div>
+            <h2
+              class="uppercase text-indigo-600 font-bold mb-3 tracking-wide text-sm">Frontend
+              Concepts</h2>
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+              Familiar with building responsive user interfaces using HTML, CSS,
+              JavaScript, and modern frameworks to ensure a seamless user
+              experience.
+            </p>
           </div>
 
           <div
-            class="mt-6 border-t pt-4 text-center md:text-right flex justify-center md:justify-center space-x-6 text-gray-600 w-full max-w-md">
-            <a aria-label="Facebook" class="hover:text-indigo-600 transition"
-              href="https://www.facebook.com/macky.masalonga.17" target="_blank">
-              <i class="fab fa-facebook fa-lg">
-              </i>
-            </a>
-            <a aria-label="Github" class="hover:text-indigo-600 transition" href="https://github.com/RonaldMark17"
-              target="_blank">
-              <i class="fab fa-github fa-lg">
-              </i>
-            </a>
-            <a aria-label="LinkedIn" class="hover:text-indigo-600 transition" href="#" target="_blank">
-              <i class="fab fa-linkedin fa-lg">
-              </i>
-            </a>
+            class="p-8 bg-white/50 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div
+              class="bg-green-100 rounded-xl w-14 h-14 flex justify-center items-center text-green-600 mb-6">
+              <i class="fas fa-server fa-lg"></i>
+            </div>
+            <h2
+              class="uppercase text-green-600 font-bold mb-3 tracking-wide text-sm">Backend
+              Development</h2>
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+              Experience writing server-side logic and managing data flow using
+              languages like Java and C# to support robust applications.
+            </p>
+          </div>
+
+          <div
+            class="p-8 bg-white/50 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div
+              class="bg-red-100 rounded-xl w-14 h-14 flex justify-center items-center text-red-600 mb-6">
+              <i class="fas fa-database fa-lg"></i>
+            </div>
+            <h2
+              class="uppercase text-red-600 font-bold mb-3 tracking-wide text-sm">Database
+              Management</h2>
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+              Proficient in structuring, querying, and managing relational
+              databases using SQL for efficient data storage and retrieval.
+            </p>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </section>
 
+    <section
+      class="py-24 px-6 md:px-16 lg:px-32 bg-white/30 backdrop-blur-md border-t border-white/50"
+      id="projects">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center justify-center mb-16">
+          <span
+            class="rounded-full bg-indigo-100 text-indigo-600 px-4 py-1 uppercase text-xs font-bold tracking-wider mb-4">Portfolio</span>
+          <h1
+            class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Featured
+            Projects</h1>
+          <p
+            class="text-center mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
+            Here are some of the key applications and systems I have
+            conceptualized and developed, applying my skills in full-stack
+            development, machine learning, and UI design.
+          </p>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="bg-white/50 backdrop-blur-md shadow-lg rounded-2xl">
-      <div class="p-8">
-        <p class="text-center text-gray-500">
-          &copy; 2025 Ronald Mark Masalonga. All rights reserved.
-        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <a href="https://agridata.ct.ws/" target="_blank"
+            class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
+            <div class="h-56 overflow-hidden relative bg-gray-200">
+              <img
+                src="resources/tanaw.png"
+                alt="TANAW Website Thumbnail"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/800x400?text=Preview+Not+Available'">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h2
+                    class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">TANAW</h2>
+                  <i
+                    class="fas fa-external-link-alt text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                </div>
+                <p class="text-gray-600 mb-4 leading-relaxed">A full-stack web
+                  application designed to manage agricultural information. It
+                  features a modern frontend connected to a robust backend,
+                  managing complex data structures and schemas.</p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">React</span>
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Laravel</span>
+                <span
+                  class="px-3 py-1 bg-gray-200 text-gray-700 text-xs font-semibold rounded-full">MySQL</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://librosys.gt.tc/" target="_blank"
+            class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
+            <div class="h-56 overflow-hidden relative bg-gray-200">
+
+              <img
+                src="resources/librosys.png"
+                alt="LibroSys"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/800x400?text=Preview+Not+Available'">
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h2
+                    class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
+                    LibroSys
+                  </h2>
+                  <i
+                    class="fas fa-external-link-alt text-gray-400 group-hover:text-green-600 transition-colors"></i>
+                </div>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                  A comprehensive library management system that allows users to
+                  manage
+                  book inventories, track loans, and generate reports. The
+                  system is
+                  built with a modern frontend and a powerful backend to handle
+                  complex
+                  data operations.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">React</span>
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Flask</span>
+                <span
+                  class="px-3 py-1 bg-gray-200 text-gray-700 text-xs font-semibold rounded-full">MySQL
+                  / MongoDB</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://pmms.ct.ws/" target="_blank"
+            class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
+            <div class="h-56 overflow-hidden relative bg-gray-200">
+              <img
+                src="resources/pmms.png"
+                alt="PMMS"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h2
+                    class="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">PMMS
+                    Appointment System</h2>
+                  <i
+                    class="fas fa-external-link-alt text-gray-400 group-hover:text-indigo-600 transition-colors"></i>
+                </div>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                  A hospital appointment management system that allows patients
+                  to book and manage appointments online. The system features a
+                  user-friendly interface and a robust backend to handle
+                  scheduling and notifications.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span
+                  class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">HTML/CSS/JS</span>
+                <span
+                  class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">PHP</span>
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Mysql</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="http://TrueBayan.ct.ws" target="_blank"
+            class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
+            <div class="h-56 overflow-hidden relative bg-gray-200">
+
+              <img
+                src="resources/truebayan.png"
+                alt="TrueBayan"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/800x400?text=Preview+Not+Available'">
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <h2
+                    class="text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+                    TrueBayan
+                  </h2>
+                  <i
+                    class="fas fa-external-link-alt text-gray-400 group-hover:text-red-600 transition-colors"></i>
+                </div>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                  A web-based platform dedicated to combating the spread of fake
+                  news and misinformation. By analyzing digital content and
+                  storing fact-checked data, TrueBayan aims to promote digital
+                  literacy and empower the community with verified, reliable
+                  information.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">HTML/CSS/JS</span>
+                <span
+                  class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">Flask</span>
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">MongoDB</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white/40 backdrop-blur-md border-y border-white/50"
+      id="awards">
+      <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-32">
+        <div class="flex flex-col items-center justify-center mb-12">
+          <span
+            class="rounded-full bg-blue-100 text-blue-600 px-4 py-1 uppercase text-xs font-bold tracking-wider mb-4">Highlights</span>
+          <h1
+            class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Awards
+            & Recognition</h1>
+          <p
+            class="text-center mt-6 text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            I have actively participated in several competitions and earned
+            recognition for my contributions to the field of IT. From the Think
+            Quest at STI to the ASEAN Data Science Explorers, these experiences
+            have continually pushed my boundaries.
+          </p>
+        </div>
+
+        <div aria-label="Awards slider"
+          class="relative w-full overflow-hidden pb-8" id="slider-container">
+          <div class="flex" id="slider" role="list">
+
+            <button aria-label="Think Quest 2022"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="Think Quest 2022"
+              data-description="Think Quest 2022 was my first award at STI. In this quiz bee-style event, our team of four answered tough IT questions and got 2nd runner-up. This boosted my confidence and passion."
+              data-image="resources/3.png" role="listitem">
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="Think Quest 2022" class="h-full w-full object-cover"
+                  src="resources/3.png"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+              <h2 class="font-bold text-gray-800 text-lg">Think Quest 2022</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">In this quiz
+                bee-style event, our team of four answered tough IT questions
+                and got 2nd runner-up.</p>
+            </button>
+
+            <button aria-label="Research Proposal 2023"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="Research Proposal 2023"
+              data-description="Our research proposal was recognized as the Most Innovative during the defense. This award highlights the creativity and originality of our project."
+              data-image="resources/4.jpg" role="listitem">
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="Research Proposal 2023"
+                  class="h-full w-full object-cover" src="resources/4.jpg"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+              <h2 class="font-bold text-gray-800 text-lg">Research Proposal
+                2023</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">Recognized as
+                the Most Innovative during the defense, highlighting our
+                creativity.</p>
+            </button>
+
+            <button aria-label="IT Olympics 2023"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="IT Olympics 2023"
+              data-description="Participated in the IT Olympics 2023, a competitive event that tested my technical skills and teamwork in various IT challenges."
+              data-image="resources/1.jpg" role="listitem">
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="IT Olympics 2023" class="h-full w-full object-cover"
+                  src="resources/1.jpg"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+              <h2 class="font-bold text-gray-800 text-lg">IT Olympics 2023</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">Tested my
+                technical skills and teamwork in various complex IT
+                challenges.</p>
+            </button>
+
+            <button aria-label="ASEAN Data Science Explorers 2024"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="ASEAN Data Science Explorers 2024"
+              data-description="Joining the ASEAN Data Science Explorers was challenging, but my mentor was very kind and patient, making the experience rewarding."
+              data-image="resources/2.jpg" role="listitem">
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="ASEAN Data Science Explorers"
+                  class="h-full w-full object-cover" src="resources/2.jpg"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+              <h2 class="font-bold text-gray-800 text-lg">ASEAN Data Science
+                2024</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">Addressed
+                real-world problems on an international stage using data-driven
+                approaches.</p>
+            </button>
+
+            <button
+              aria-label="Batang Techno: Building the Minds of Tommorow's Innovators' Hackaton"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="Batang Techno: Building the Minds of Tommorow's Innovators' Hackaton"
+              data-description="In 2025, I joined the CCS Fest Quiz Bee, where the competition was tough, but the experience was exciting and rewarding. With preparation and focus, I was able to earn 3rd place, which further strengthened my confidence and knowledge in the field."
+              data-image="resources/5.jpg" role="listitem">
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="CCS Fest Quiz Bee" class="h-full w-full object-cover"
+                  src="resources/5.jpg"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+              <h2 class="font-bold text-gray-800 text-lg">CCS Fest Quiz Bee
+                2025</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">Earned 3rd
+                place, strengthening my confidence and knowledge in the
+                field.</p>
+            </button>
+
+            <button
+              aria-label="Batang Techno: Building the Minds of Tomorrow's Innovators Hackathon 2026"
+              class="p-6 m-2 border border-white/40 rounded-xl bg-white/60 shadow-sm flex-shrink-0 hover:shadow-lg hover:-translate-y-1 transition-all w-72 text-left"
+              data-title="Batang Techno: Building the Minds of Tomorrow's Innovators Hackathon 2026"
+              data-description="In 2026, I joined the Batang Techno: Building the Minds of Tomorrow's Innovators Hackathon, where the competition was tough, but the experience was exciting and rewarding. With preparation and focus, it further strengthened my confidence and knowledge in the field."
+              data-image="resources/6.png" role="listitem">
+
+              <div
+                class="h-40 w-full rounded-lg bg-gray-100 flex justify-center items-center overflow-hidden mb-4">
+                <img alt="Batang Techno Hackathon 2026"
+                  class="h-full w-full object-cover"
+                  src="resources/6.png"
+                  onerror="this.src='https://placehold.co/400x300?text=Image+Missing'" />
+              </div>
+
+              <h2 class="font-bold text-gray-800 text-lg line-clamp-2">Batang
+                Techno Hackathon 2026</h2>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-3">Competed in a
+                tough, exciting hackathon that further strengthened my
+                confidence and knowledge in the field.</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div aria-hidden="true"
+      class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 z-[100]"
+      id="modal" role="dialog">
+      <div
+        class="bg-white rounded-2xl max-w-lg w-full shadow-2xl relative transform transition-transform scale-95 scale-100 overflow-hidden flex flex-col max-h-[90vh]">
+        <button aria-label="Close modal"
+          class="absolute top-4 right-4 bg-white/80 backdrop-blur hover:bg-white text-gray-800 w-8 h-8 rounded-full flex items-center justify-center shadow focus:outline-none z-10 transition-colors"
+          id="modal-close" type="button">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <img alt="Award Modal Image"
+          class="w-full h-64 sm:h-72 object-cover flex-shrink-0"
+          id="modal-image" src />
+
+        <div class="p-8 overflow-y-auto">
+          <h2 class="text-2xl font-bold text-gray-800 mb-3"
+            id="modal-title"></h2>
+          <p class="text-gray-600 leading-relaxed" id="modal-description"></p>
+        </div>
       </div>
     </div>
-  </footer>
 
+    <section class="py-24 px-6 md:px-16 lg:px-32" id="contact">
+      <div
+        class="max-w-6xl mx-auto bg-white/60 backdrop-blur-xl shadow-xl rounded-3xl p-8 md:p-12">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Contact
+            Me</h1>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Interested in working together or just want to say hi? I'd love to
+            hear from you.
+          </p>
+        </div>
 
-  <script src="script.js"></script>
-</body>
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="w-full lg:w-1/2">
+            <form action="#" autocomplete="off" class="space-y-6" method="POST">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  for="name">Name</label>
+                <input
+                  class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                  id="name" name="name" placeholder="John Doe" required
+                  type="text" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  for="email">Email</label>
+                <input
+                  class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                  id="email" name="email" placeholder="john@example.com"
+                  required type="email" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  for="message">Message</label>
+                <textarea
+                  class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                  id="message" name="message" placeholder="How can I help you?"
+                  required rows="5"></textarea>
+              </div>
+              <button
+                class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-700/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all transform hover:-translate-y-0.5"
+                type="submit">
+                Send Message
+              </button>
+            </form>
+          </div>
 
+          <div class="w-full lg:w-1/2 flex flex-col justify-between">
+            <div
+              class="h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-inner border border-gray-200"
+              id="map" style="z-index: 1;"></div>
+
+            <div class="mt-8 flex justify-center lg:justify-start gap-6">
+              <a aria-label="Facebook"
+                class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+                href="https://www.facebook.com/macky.masalonga.17"
+                target="_blank">
+                <i class="fab fa-facebook-f fa-lg"></i>
+              </a>
+              <a aria-label="Github"
+                class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-gray-800 hover:bg-gray-800 hover:text-white transition-colors"
+                href="https://github.com/RonaldMark17" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+              <a aria-label="LinkedIn"
+                class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors"
+                href="#" target="_blank">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-300">
+      <p class="text-center text-gray-500 text-sm">
+        &copy; 2025 Ronald Mark Masalonga. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin></script>
+    <script src="script.js"></script>
+  </body>
 </html>
