@@ -126,3 +126,6 @@ navigator.geolocation.watchPosition(
     console.warn("ERROR(" + err.code + "): " + err.message);
   }
 );
+
+// --- Set Current Year in Footer ---
+document.getElementById("current-year").textContent = new Date().getFullYear();
