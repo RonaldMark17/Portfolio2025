@@ -7,11 +7,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap"
-      rel="stylesheet" />
     <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <link rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -23,12 +20,12 @@
 
   <body class="bg-gray-200 antialiased text-gray-800">
     <header
-      class="px-6 py-4 shadow-sm bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-white/20"
+      class="liquid-navbar px-6 py-4 sticky top-0 z-50"
       id="navbar">
       <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between"
         aria-label="Primary Navigation">
         <a href="#home"
-          class="text-blue-600 font-bold text-3xl md:text-4xl tracking-tight">Portfolio.</a>
+          class="text-blue-600 font-bold text-3xl md:text-4xl tracking-tight">Portfolio</a>
 
         <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
           class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">
@@ -43,11 +40,15 @@
               class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Home</a>
             <a href="#about"
               class="text-gray-600 hover:text-blue-600 transition-colors nav-link">About</a>
+            <a href="#skills"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Skills</a>
             <a href="#projects"
               class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Projects</a>
             <a href="#awards"
               class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Awards
               & Recognition</a>
+            <a href="#certifications"
+              class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Certifications</a>
             <a href="#contact"
               class="text-gray-600 hover:text-blue-600 transition-colors nav-link">Contact</a>
           </div>
@@ -58,10 +59,10 @@
     <main class="px-6 md:px-16 lg:px-32 pt-20" id="home">
       <section class="max-w-5xl mx-auto">
         <div
-          class="p-8 bg-white/60 backdrop-blur-lg shadow-xl rounded-2xl relative mt-16">
+          class="liquid-hero p-8 md:p-12 rounded-[2rem] relative mt-16">
           <div class="absolute -top-20 left-1/2 transform -translate-x-1/2">
             <div
-              class="w-40 h-40 md:w-48 md:h-48 bg-indigo-100 rounded-full shadow-xl border-4 border-white overflow-hidden flex items-center justify-center">
+              class="liquid-avatar w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden flex items-center justify-center">
               <img src="resources/e25f0ffa-f6cc-4224-a825-f09f16a9c4b6.jpg"
                 alt="Ronald Mark Masalonga" class="h-full w-full object-cover"
                 onerror="this.src='https://ui-avatars.com/api/?name=Ronald+Mark&size=200&background=c7d2fe&color=3730a3'" />
@@ -88,9 +89,19 @@
             <p
               class="text-gray-600 text-center max-w-2xl mx-auto leading-relaxed">
               Aspiring IT professional with a passion for technology and
-              innovation. Dedicated to continuous learning and growth in the
-              ever-evolving field of information technology.
+              innovation, building practical web systems with React, Laravel,
+              Flask, JavaScript, and SQL. Open to junior IT roles and
+              freelance web projects.
             </p>
+            <div class="hero-actions flex flex-wrap items-center justify-center gap-3 mt-7">
+              <span class="availability-chip"><i class="fas fa-circle text-emerald-500 mr-2 text-[0.55rem]"></i>Available for IT roles &amp; freelance work</span>
+              <a href="#projects" class="liquid-primary-button">View Projects <i class="fas fa-arrow-right ml-2"></i></a>
+              <div class="hero-quick-links">
+                <a href="resources/Ronald-Mark-Masalonga-Resume.pdf" download><i class="fas fa-download"></i>Résumé</a>
+                <a href="https://github.com/RonaldMark17" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
+                <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -164,8 +175,80 @@
       </div>
     </section>
 
+    <section class="py-24 px-6 md:px-16 lg:px-32" id="skills">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center justify-center mb-12">
+          <span class="rounded-full bg-indigo-100 text-indigo-600 px-4 py-1 uppercase text-xs font-bold tracking-wider mb-4">Expertise</span>
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Skills &amp; Tools</h1>
+          <p class="text-center mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
+            Technologies I use to build reliable, user-friendly applications and continue developing my IT foundation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="p-7 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-white/60 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-laptop-code fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-xl mb-4">Frontend</h2>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">HTML</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">CSS</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">JavaScript</span>
+              <span class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-semibold rounded-full">React</span>
+            </div>
+          </article>
+
+          <article class="p-7 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-white/60 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5"><i class="fas fa-server fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-xl mb-4">Backend</h2>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">Java</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">C#</span>
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">Flask</span>
+              <span class="px-3 py-1 bg-violet-100 text-violet-700 text-xs font-semibold rounded-full">PHP</span>
+            </div>
+          </article>
+
+          <article class="p-7 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-white/60 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5"><i class="fas fa-database fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-xl mb-4">Data &amp; Tools</h2>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">SQL</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">MySQL</span>
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">MongoDB</span>
+              <span class="px-3 py-1 bg-slate-200 text-slate-700 text-xs font-semibold rounded-full">GitHub</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+          <article class="liquid-info-panel p-8">
+            <span class="section-eyebrow">Why hire me</span>
+            <h2 class="text-2xl font-bold text-gray-800 mt-3">Built around practical, growing experience.</h2>
+            <ul class="mt-6 space-y-4 text-gray-600">
+              <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Hands-on experience creating and presenting live web applications.</span></li>
+              <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Comfortable moving between interfaces, backend logic, and data management.</span></li>
+              <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Actively expanding skills through projects, competitions, and certifications.</span></li>
+            </ul>
+          </article>
+          <article class="liquid-info-panel p-8">
+            <span class="section-eyebrow">Freelance services</span>
+            <h2 class="text-2xl font-bold text-gray-800 mt-3">Ways I can help your next idea.</h2>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="service-chip">Portfolio websites</span>
+              <span class="service-chip">Business systems</span>
+              <span class="service-chip">Database-backed web apps</span>
+              <span class="service-chip">UI improvements</span>
+              <span class="service-chip">System prototypes</span>
+            </div>
+            <a href="#contact" class="inline-flex items-center mt-8 font-semibold text-blue-600 hover:text-blue-700">Start a conversation <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section
-      class="py-24 px-6 md:px-16 lg:px-32 bg-white/30 backdrop-blur-md border-t border-white/50"
+      class="py-24 px-6 md:px-16 lg:px-32"
       id="projects">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col items-center justify-center mb-16">
@@ -182,8 +265,15 @@
           </p>
         </div>
 
+        <div class="project-filters" aria-label="Filter projects">
+          <button class="project-filter is-active" type="button" data-filter="all">All projects</button>
+          <button class="project-filter" type="button" data-filter="full-stack">Full stack</button>
+          <button class="project-filter" type="button" data-filter="management">Management systems</button>
+          <button class="project-filter" type="button" data-filter="information">Information platforms</button>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <a href="https://agridata.ct.ws/" target="_blank"
+          <a href="https://agridata.ct.ws/" target="_blank" data-category="full-stack information"
             class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
             <div class="h-56 overflow-hidden relative bg-gray-200">
               <img
@@ -197,8 +287,11 @@
             <div class="p-8 flex-1 flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
-                  <h2
-                    class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">TANAW</h2>
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wide text-blue-600">Live demo · Full stack</span>
+                    <h2
+                      class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">TANAW</h2>
+                  </div>
                   <i
                     class="fas fa-external-link-alt text-gray-400 group-hover:text-blue-600 transition-colors"></i>
                 </div>
@@ -206,6 +299,7 @@
                   application designed to manage agricultural information. It
                   features a modern frontend connected to a robust backend,
                   managing complex data structures and schemas.</p>
+                <div class="project-summary"><span>Project focus</span><strong>Agricultural information management</strong></div>
               </div>
               <div class="flex flex-wrap gap-2 mt-4">
                 <span
@@ -218,7 +312,7 @@
             </div>
           </a>
 
-          <a href="https://librosys.gt.tc/" target="_blank"
+          <a href="https://librosys.gt.tc/" target="_blank" data-category="full-stack management"
             class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
             <div class="h-56 overflow-hidden relative bg-gray-200">
 
@@ -234,10 +328,13 @@
             <div class="p-8 flex-1 flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
-                  <h2
-                    class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
-                    LibroSys
-                  </h2>
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wide text-green-600">Live demo · Full stack</span>
+                    <h2
+                      class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
+                      LibroSys
+                    </h2>
+                  </div>
                   <i
                     class="fas fa-external-link-alt text-gray-400 group-hover:text-green-600 transition-colors"></i>
                 </div>
@@ -250,6 +347,7 @@
                   complex
                   data operations.
                 </p>
+                <div class="project-summary"><span>Project focus</span><strong>Library inventory and loan management</strong></div>
               </div>
               <div class="flex flex-wrap gap-2 mt-4">
                 <span
@@ -263,7 +361,7 @@
             </div>
           </a>
 
-          <a href="https://pmms.ct.ws/" target="_blank"
+          <a href="https://pmms.ct.ws/" target="_blank" data-category="management"
             class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
             <div class="h-56 overflow-hidden relative bg-gray-200">
               <img
@@ -276,9 +374,12 @@
             <div class="p-8 flex-1 flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
-                  <h2
-                    class="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">PMMS
-                    Appointment System</h2>
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wide text-indigo-600">Live demo · Appointment system</span>
+                    <h2
+                      class="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">PMMS
+                      Appointment System</h2>
+                  </div>
                   <i
                     class="fas fa-external-link-alt text-gray-400 group-hover:text-indigo-600 transition-colors"></i>
                 </div>
@@ -288,6 +389,7 @@
                   user-friendly interface and a robust backend to handle
                   scheduling and notifications.
                 </p>
+                <div class="project-summary"><span>Project focus</span><strong>Online appointment scheduling</strong></div>
               </div>
               <div class="flex flex-wrap gap-2 mt-4">
                 <span
@@ -295,12 +397,12 @@
                 <span
                   class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">PHP</span>
                 <span
-                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Mysql</span>
+                  class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">MySQL</span>
               </div>
             </div>
           </a>
 
-          <a href="http://TrueBayan.ct.ws" target="_blank"
+          <a href="http://TrueBayan.ct.ws" target="_blank" data-category="information"
             class="block bg-white/60 backdrop-blur-xl rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col group cursor-pointer">
             <div class="h-56 overflow-hidden relative bg-gray-200">
 
@@ -316,10 +418,13 @@
             <div class="p-8 flex-1 flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
-                  <h2
-                    class="text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">
-                    TrueBayan
-                  </h2>
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wide text-red-600">Live demo · Digital literacy</span>
+                    <h2
+                      class="text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+                      TrueBayan
+                    </h2>
+                  </div>
                   <i
                     class="fas fa-external-link-alt text-gray-400 group-hover:text-red-600 transition-colors"></i>
                 </div>
@@ -330,6 +435,7 @@
                   literacy and empower the community with verified, reliable
                   information.
                 </p>
+                <div class="project-summary"><span>Project focus</span><strong>Fact-checking support and digital literacy</strong></div>
               </div>
               <div class="flex flex-wrap gap-2 mt-4">
                 <span
@@ -342,10 +448,15 @@
             </div>
           </a>
         </div>
+        <div class="mt-10 text-center">
+          <a href="https://github.com/RonaldMark17" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors">
+            <i class="fab fa-github text-lg mr-2"></i>Explore more work on GitHub <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="py-16 bg-white/40 backdrop-blur-md border-y border-white/50"
+    <section class="py-20"
       id="awards">
       <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-32">
         <div class="flex flex-col items-center justify-center mb-12">
@@ -361,6 +472,13 @@
             Quest at STI to the ASEAN Data Science Explorers, these experiences
             have continually pushed my boundaries.
           </p>
+        </div>
+
+        <div class="awards-toolbar">
+          <div class="awards-controls" aria-label="Awards carousel controls">
+            <button id="awards-prev" type="button" aria-label="Show previous awards"><i class="fas fa-arrow-left"></i></button>
+            <button id="awards-next" type="button" aria-label="Show next awards"><i class="fas fa-arrow-right"></i></button>
+          </div>
         </div>
 
         <div aria-label="Awards slider"
@@ -482,6 +600,105 @@
       </div>
     </section>
 
+    <section class="py-24 px-6 md:px-16 lg:px-32" id="certifications">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center justify-center mb-12">
+          <span
+            class="rounded-full bg-indigo-100 text-indigo-600 px-4 py-1 uppercase text-xs font-bold tracking-wider mb-4">Learning</span>
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Certifications</h1>
+          <p class="text-center mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
+            A collection of certificates that reflect my continuing learning in software development, networking, cloud computing, data science, and design thinking.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="certification-grid">
+          <a href="resources/AIFundamentalsFoundationsforUnderstandingAI_Badge20261115-20-4gmxng.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5"><i class="fas fa-brain fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-violet-600 transition-colors">AI Fundamentals</h2>
+            <p class="text-sm text-gray-500 mt-2">Foundations for Understanding AI</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-violet-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/Cloud Computing.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center mb-5"><i class="fas fa-cloud fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-sky-600 transition-colors">Cloud Computing</h2>
+            <p class="text-sm text-gray-500 mt-2">Cloud computing certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-sky-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/EnterpriseDesignThinkingPractitioner_Badge20261115-20-9f9khb.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5"><i class="fas fa-lightbulb fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-amber-600 transition-colors">Enterprise Design Thinking</h2>
+            <p class="text-sm text-gray-500 mt-2">Practitioner badge</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-amber-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/EthicalHackerUpdate20261115-20-tgxotd.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center mb-5"><i class="fas fa-user-shield fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-rose-600 transition-colors">Ethical Hacker</h2>
+            <p class="text-sm text-gray-500 mt-2">Cybersecurity certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-rose-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/IntrotoDataScienceUpdate20261115-20-stufzk.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5"><i class="fas fa-chart-line fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-emerald-600 transition-colors">Introduction to Data Science</h2>
+            <p class="text-sm text-gray-500 mt-2">Data science certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-emerald-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/NetworkAddressingandBasicTroubleshootingUpdate20261115-20-jr2vuf.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-network-wired fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">Network Addressing</h2>
+            <p class="text-sm text-gray-500 mt-2">Basic troubleshooting certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/OperatingSystemsBasicsUpdate20261115-20-6j1kqz.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5"><i class="fas fa-desktop fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-indigo-600 transition-colors">Operating Systems Basics</h2>
+            <p class="text-sm text-gray-500 mt-2">Operating systems certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-indigo-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/PythonEssentials1Update20261115-20-rzfiq8.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center mb-5"><i class="fab fa-python fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-yellow-600 transition-colors">Python Essentials 1</h2>
+            <p class="text-sm text-gray-500 mt-2">Python programming certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-yellow-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/Software Development.pdf" target="_blank" rel="noopener noreferrer"
+            class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60">
+            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-5"><i class="fas fa-code fa-lg"></i></div>
+            <h2 class="font-bold text-gray-800 text-lg group-hover:text-cyan-600 transition-colors">Software Development</h2>
+            <p class="text-sm text-gray-500 mt-2">Software development certificate</p>
+            <span class="inline-flex items-center mt-5 text-sm font-semibold text-cyan-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span>
+          </a>
+
+          <a href="resources/IBMDesign20261115-20-87m9kq.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 1</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-8og3uf.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 2</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-g1u7og.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 3</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-jb44yt.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 4</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-mt3izd.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 5</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-rn39b7.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 6</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-wxnq61.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 7</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+          <a href="resources/IBMDesign20261115-20-xhg962.pdf" target="_blank" rel="noopener noreferrer" class="group p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-white/60"><div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5"><i class="fas fa-pencil-ruler fa-lg"></i></div><h2 class="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">IBM Design Certificate 8</h2><p class="text-sm text-gray-500 mt-2">IBM design learning credential</p><span class="inline-flex items-center mt-5 text-sm font-semibold text-blue-600">View PDF <i class="fas fa-arrow-up-right-from-square ml-2"></i></span></a>
+        </div>
+        <div class="text-center mt-10">
+          <button id="certificate-toggle" type="button" class="liquid-secondary-button" aria-controls="certification-grid" aria-expanded="false">Show all certificates <i class="fas fa-chevron-down ml-2"></i></button>
+        </div>
+      </div>
+    </section>
+
     <div aria-hidden="true"
       class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 z-[100]"
       id="modal" role="dialog">
@@ -507,7 +724,7 @@
 
     <section class="py-24 px-6 md:px-16 lg:px-32" id="contact">
       <div
-        class="max-w-6xl mx-auto bg-white/60 backdrop-blur-xl shadow-xl rounded-3xl p-8 md:p-12">
+        class="liquid-contact-panel max-w-6xl mx-auto rounded-3xl p-8 md:p-12">
         <div class="text-center mb-12">
           <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Contact
             Me</h1>
@@ -582,6 +799,7 @@
         &copy; <span id="current-year"></span> Ronald Mark Masalonga. All rights
         reserved.
       </p>
+      <a href="#home" class="back-to-top"><i class="fas fa-arrow-up mr-2"></i>Back to top</a>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

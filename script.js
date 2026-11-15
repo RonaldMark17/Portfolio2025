@@ -17,7 +17,7 @@ navLinks.forEach((link) => {
   });
 });
 
-const text = "Ronald Mark Masalonga, 21";
+const text = "Ronald Mark Masalonga, 22";
 const typingElement = document.getElementById("typing");
 const typingContainer = document.getElementById("typing-container");
 let index = 0;
@@ -52,8 +52,30 @@ function type() {
 type();
 
 const slider = document.getElementById("slider");
+const sliderContainer = document.getElementById("slider-container");
+const awardsPreviousButton = document.getElementById("awards-prev");
+const awardsNextButton = document.getElementById("awards-next");
 
-// The slider content is already duplicated in HTML for infinite scroll effect, so no need to duplicate here.
+function updateAwardsControls() {
+  const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+  awardsPreviousButton.disabled = sliderContainer.scrollLeft <= 1;
+  awardsNextButton.disabled = sliderContainer.scrollLeft >= maxScroll - 1;
+}
+
+function scrollAwards(direction) {
+  const firstAward = slider.querySelector("button");
+  const cardWidth = firstAward ? firstAward.getBoundingClientRect().width + 16 : 320;
+  sliderContainer.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+}
+
+awardsPreviousButton.addEventListener("click", () => scrollAwards(-1));
+awardsNextButton.addEventListener("click", () => scrollAwards(1));
+sliderContainer.addEventListener("scroll", updateAwardsControls, { passive: true });
+window.addEventListener("resize", updateAwardsControls);
+window.addEventListener("load", updateAwardsControls);
+updateAwardsControls();
+
+// Awards can be explored with the arrows, keyboard focus, trackpad, or touch swipe.
 
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
@@ -129,3 +151,94 @@ navigator.geolocation.watchPosition(
 
 // --- Set Current Year in Footer ---
 document.getElementById("current-year").textContent = new Date().getFullYear();
+
+// Add lightweight, clickable previews for every certificate PDF.
+const certificateCards = document.querySelectorAll('#certifications a[href$=".pdf"]');
+
+certificateCards.forEach((card, index) => {
+  const preview = document.createElement("div");
+  const frame = document.createElement("iframe");
+  const fallback = document.createElement("div");
+
+  card.classList.add("certificate-card", "is-ready");
+  if (index >= 6) card.classList.add("is-collapsed");
+  card.style.setProperty("--certificate-delay", `${Math.min(index * 65, 390)}ms`);
+  preview.className = "certificate-preview";
+  fallback.className = "certificate-preview-fallback";
+  fallback.innerHTML = '<i class="fas fa-file-pdf"></i><span>PDF preview</span>';
+  frame.src = encodeURI(card.getAttribute("href"));
+  frame.title = "PDF certificate preview";
+  frame.setAttribute("aria-hidden", "true");
+  frame.tabIndex = -1;
+  preview.append(fallback, frame);
+  card.prepend(preview);
+});
+
+const certificateToggle = document.getElementById("certificate-toggle");
+
+certificateToggle?.addEventListener("click", () => {
+  const isExpanded = certificateToggle.getAttribute("aria-expanded") === "true";
+
+  certificateCards.forEach((card, index) => {
+    if (index >= 6) card.classList.toggle("is-collapsed", isExpanded);
+  });
+
+  certificateToggle.setAttribute("aria-expanded", String(!isExpanded));
+  certificateToggle.innerHTML = isExpanded
+    ? 'Show all certificates <i class="fas fa-chevron-down ml-2"></i>'
+    : 'Show fewer certificates <i class="fas fa-chevron-up ml-2"></i>';
+});
+
+if ("IntersectionObserver" in window) {
+  const certificateObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  certificateCards.forEach((card) => certificateObserver.observe(card));
+} else {
+  certificateCards.forEach((card) => card.classList.add("is-visible"));
+}
+
+// Highlight the navigation item for the section currently in view.
+const sections = document.querySelectorAll("main[id], section[id]");
+const navigationLinks = document.querySelectorAll(".nav-link");
+
+if ("IntersectionObserver" in window) {
+  const navigationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navigationLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    },
+    { rootMargin: "-28% 0px -62% 0px", threshold: 0 }
+  );
+
+  sections.forEach((section) => navigationObserver.observe(section));
+}
+
+// Filter projects without sending visitors away from the page.
+const projectFilters = document.querySelectorAll(".project-filter");
+const projectCards = document.querySelectorAll("#projects .grid > a[data-category]");
+
+projectFilters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    const selectedFilter = filter.dataset.filter;
+
+    projectFilters.forEach((button) => button.classList.toggle("is-active", button === filter));
+    projectCards.forEach((card) => {
+      const matchesFilter = selectedFilter === "all" || card.dataset.category.includes(selectedFilter);
+      card.classList.toggle("is-filtered-out", !matchesFilter);
+    });
+  });
+});
